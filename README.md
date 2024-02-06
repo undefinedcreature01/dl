@@ -19,3 +19,4 @@ So what would a "strong" AI be ? The correct term for them is general AIs. It re
 Creating such a complex system is currently only a goal in the field of AI, presenting many significant technical, philosophical, and ethical challenges.
 
 
+![Image](/assets/ai_ml_dl.png) 

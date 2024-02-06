@@ -7,6 +7,7 @@
 
 **Artificial intelligence** is a field of computer science focused on developing and reaserching systems made to preform tasks that require human-like intelligence. (the term "AI" may also be used to describe such machines/software) 
 Things like simple item classification (is this food, drink, a toy, a human face ?) and are all things computers cannot "just do" 
+
 -but neither can we.
 
 Just like AIs we need to train and learn these things. Now it isn't unexpected that a thing made to mimic and even surpass human intelligence needs to train like one too, yet having tons of data inserted into the brain wasn't really a part of anyones childhood now was it ? (it actually was!) 
@@ -17,7 +18,4 @@ Now unlike humans, that learn, know and do all of these tasks at once, AIs are g
 So what would a "strong" AI be ? The correct term for them is general AIs. It refers to systems able to learn, understand and adapt much like humans do. They are able to generalize intelligence, bascially learn from experience, understand natural language, adapt to new/different situations, reason and perform a wide variety of cognitive tasks at a human level or beyond.
 Creating such a complex system is currently only a goal in the field of AI, presenting many significant technical, philosophical, and ethical challenges.
 
-
-<!--  -->
-![ai vs machine learning vs deep learning](/assets/ai_ml_dl.png)
 

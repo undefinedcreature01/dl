@@ -1,0 +1,10 @@
+
+
+
+readme.md - splosno o ai, ...
+
+ipynb
+
+- aktivacijske funckije posebaj /opis + koda + plot
+
+

@@ -1,5 +1,5 @@
 
-```
+
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -20,4 +20,3 @@ plt.title('Sigmoid Function')
 plt.legend()
 plt.grid(True)
 plt.show()
-```

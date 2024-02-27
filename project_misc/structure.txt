@@ -3,6 +3,9 @@
 
 readme.md - splosno o ai, ...
 
+nevroni ... nevronske mreze
+
+
 ipynb
 
 - aktivacijske funckije posebaj /opis + koda + plot

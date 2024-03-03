@@ -1,13 +1,13 @@
 
 
 
-# 4. predmet ; izdelek : DEEP LEARNING - the basics
+# 4. predmet ; izdelek
 
 
 # What even is artificial intelligence ?
 
-**Artificial intelligence** is a branch of computer science focused on developing and reaserching systems made to preform tasks that require human-like intelligence. <br>
-(the term "AI" may also be used to describe such machines/software). 
+**Artificial intelligence** is a branch of computer science focused on developing and reaserching systems made to preform tasks that require human-like intelligence. 
+<br>(the term "AI" may also be used to describe such machines/software). 
 
 AIs are generally quite specialized, often designed to preform only one task(or a small range of tasks). For example just recognizing emotions or just recognizing shapes. We call such specilized AIs **narrow or "weak" AIs.**
 
@@ -17,7 +17,7 @@ AIs are generally quite specialized, often designed to preform only one task(or 
 
 > Machine learning is a subfield of AI, that achives the preforming of tasks requring human-like intelligence with algorithms, creating models to preform the tasks without directly programming them to do so. 
 
-AI is all about making systems able to preform tasks that generally require human-like intelligence right ? <br>
+AI is all about making systems able to preform tasks that generally require human-like intelligence right ? 
 
 So machine learning is focused on achiving that with the development of algorithms and models that enable systems to preform those tasks without being programmed with specific rules on how to preform them, but rather by learning on specific datasets and applying that to new data.
 
@@ -44,7 +44,7 @@ Generally, they are used when:
 >
 >Model is a program - programs are algorithms - algorithms are methods, so models are also called methods.
 >
->Methods withing machine learning are also just procedures, that tell the model what to do with the data.  <br> (they are algorithms - still part of a model, making them methods withing a method if you will)
+>Methods withing machine learning are also just procedures, that tell the model what to do with the data. (they are algorithms - still part of a model, making them methods withing a method if you will)
 >
 >Let's draw a very clear line on what each thing is
 >
@@ -88,14 +88,15 @@ The structure/architecture of a model differs based on the task it is trying to 
 
 ## Methods
 
-Methods are procedures for accomplishing or approaching something - generally a goal. <br> In machine learning methods are both parts of a training algorithm used to train a model, and parts of its structre. 
+Methods are procedures for accomplishing or approaching something - generally a goal. 
+<br> In machine learning methods are both parts of a training algorithm used to train a model, and parts of its structre. 
 
 Learning paradigms generally tell us how a model interacts with data during training. Do we give it labeled data and tell it what things are ? Should the model discover patterns by itself ? And so on.
 
 | Learning paradigms|  |
 |-|-|
 | Supervised learning      | training algorithm uses labled training data (tries getting closer to the correct label)                  |
-| Unsupervised learning    | training algorithm uses unlabled training data - discoveres patterns by itself                               |
+| Unsupervised learning    | training algorithm uses unlabled training data - discoveres patterns by itself <br> (usually based on the difference between input and output)                              |
 | Semi-Supervised learning | training algorithm uses both labled and unlabled data <br> (usually used when labled data is scarce/expensive)             |
 | Reinforcement learning   | training algorithm trains by interacting - receiving feedback (rewards/penalties) 
 | Self-supervised learning   | |
@@ -108,7 +109,7 @@ There are types of methods that utlize learning paradigms, and do not fit very w
 |Association rule learning| model identifies 'rules' to store - to process data with <br> IF data_is_something THEN output |
 | |   |
 
-### (Artificial) Neural Networks
+## (Artificial) Neural Networks (ANNs)
 
 Artificial neural networks are machine learning models, inspired by the biological neural network.
 
@@ -120,7 +121,7 @@ The layred structure comes in handy when we have large amounts of data that need
 | layer |  building block, groups up nodes that preform specific operations on data |
 | weight | how important a value from a neuron has <br> (generally multiplied - so if a weight is really low the output value will also be low - having less impact)  |
 | treshold| a point something has to cross |
-| link |   |
+| link/connection |   |
 | |   |
 
 In the artificial neural networks neurons are also referred to as nodes or units. They take in data either from some external input data (ie. we give it) or from other nodes in the network, process it (run the given data through a function/method that returns a new value of the neuron) and produce an output - that is then sent to other nodes or treated as the final output.
@@ -134,76 +135,96 @@ Neural networks are models made up of nodes, that are connected together. These 
 | hidden layer(s) | all layers (0+) between the input layer and the output layer of a neural network   |
 | |   |
 
-When a neural network has 2 or more layers, it falls into the category of DNNs - deep learning networks.
-
 The nodes can connect to the following layers in differnt ways:
 
 | Connection patterns/direction |   |
 |---|---|
 | fully connected |  every node of one layer - connects to every node of the next layer |
 | pooling | group of nodes in one layer - connect to one node in the next layer |
-| reccurent | nodes can connect to nodes in the next, its own or the previous layer|
+| reccurent | nodes can connect to nodes in the next, its own or the previous layer |
 
-Nodes generally also have a weights, these values represent the "strenght" or importance of a connection between neurons in adjescent layers. 
+When a neural network has 2 or more layers, it falls into the category of DNNs - deep learning networks.
+
+We have two borad types of ANNs. They define how the data flows trough the mode.
+
+- FNNs (feedforward) 
+
+Data flows only in one direction - forward. 
+<br>(from the input layer - trough the hidden layers(if there are any), to the output layer). Here each node has a weight
+>A very common type of FNN is CNN (Convolutional neural network)
+
+- RNNs (reccurent) 
+
+Here nodes aren't independent blocks. The outputs of nodes (stored in memory) influance the outputs of other nodes (during the execution). This comes in handly when handling sequential data (ie. language; speech/writting).
+
+Nodes in RNNs don't each have their own weight, but rather nodes inside each layer share the same parameters.
+
+### Nodes - in FNNs
+
+Nodes generally have a weights, these values represent the "strenght" or importance of a connection between neurons in adjescent layers. 
 
 >
 >A node sends its ouput to a node (or many nodes) in the next layer through a connection/link. There exist one connection for each node it sends its output to.
 (connection is a pair; current node - next node)
 >
 >The weight on the connection between the node sending its output and the node recieving it tell the recieving node how important the value is in calculating its own output.
->
->Each input value a node recives is multiplied by the weight of the connection it recieved it from, getting a "weighted input".
->
->All the weighted inputs are then summed up and sent to an activation function and this transformed input (output of a node) is then sent onward.
 
-The functions that the summed data recived by a node is sent to are called **activation/transfer functions**
+Each input value a node recives is multiplied by the weight of the connection it recieved it from, getting a "weighted input". (w = weight, x = input from a node)
 
-Node connections (can) also have something called **bias term/unit**. It is a parameter associated with each node in an network - a treshold that the sum of weighted inputs has to reach/surpass in order for the node to "fire"(to actually forward the output).
+$$ f(x) = w * x $$
+
+All the weighted inputs are then summed up. (n = number of nodes sending their inputs to the node that is calculating the sum)
+$$ sum = w1*x1 + w2*x2 ... wn*xn $$
+  
+The summed up weighted inputs are then sent to an activation/transfer function and this transformed input (output of a node) is then sent onward. 
+ $$ y = activation\_function(w1*x1 + w2*x2 + b) $$
+
+Nodes (can) also have something called **bias term/unit** (b in the above equation). It is a parameter(means the value changes when the model is trained) associated with each node in an network used to shift/offset the weighted value of the input. Shoft left to delay or right to accelerate the activation of a node.
+
+Being able to shift the function result means it is not stuck at [0,0] like most functions are. 
+<br> So the output of a node is not strictly defined, it is also a parameter that isn't input dependant (like weight is)
 
 So each node is characterized by a weight, a bias and an activation function.
+At the start(when a model is first created) these weights and biases are just some random numbers. Throught training a model tweaks these paramters in a way where it is then able to calculate the desired output from given inputs.
 
 #### Activation functions
 
 | |   |
 |---|---|
 | features  | relevant/useful information about/from a specific instance of data (ie. edges of a picture, pitch of a sound, results of a function)|
-| in-features (input) |   |
-| out-features (output) |   |
+| in-features (input) |  relevant information a node recieves |
+| out-features (output) |  relevant information a node outputs |
 | |   |
 
-Till now I have been referring to the data sent/recieved by a node as just input/ouput. What nodes actually recieve and output are features, relevant information from the data they recieve.
+Till now I have been referring to the data sent/recieved by a node as just input/ouput. What nodes actually recieve and output are features, relevant information from the data they recieve. 
 
-But what exactly (as in data type  etc.) are features ? to understand what kind of data is being sent to/from nodes we need to understand what an activation function is and what exactly it does in a node.
+Activation functions help map out data they recieve in a way where it makes sense for fruther calculations. (instead of values like 1.3 or 34 we can use a function to get a value from 0 to 1 - which makes things much more clear)
 
-> This is only a brief explanation of activation functions. There is a notebook file explaining and visually showcasing the functions more in depth [here](notebooks/00_pytorch_activation_functions.ipynb)
-
-
-Linear vs, Non-linear functions:
-
-
-
-
-| Function type |   |
-|---|---|
-| Binary step | linear function -  threshold-based activation |
-
-
-There are diffrent way that data moves through the neural network. Most commonly we talk about **feed-forward** and **back-propagation**.
-
-
-
-
-
-
-
-
+> There is a notebook file explaining and visually showcasing the functions more in depth [here](notebooks/00_pytorch_activation_functions.ipynb)
 
 # Deep learning
 
-## CNNs (Convolutional Neural Networks)
-
+Deep learning is a specific architecture of neural network models where the network has more than two layers.
 
 # Training models ?
+
+Training a model means adjusting weights and biases so that when it recieves data (unseen ; was not part of training) it can accuretly preform the desired task (ie. correctly classifying what is on an image..)
+
+When training any model there are different ways that data moves through the network. When talking about models based on neural networks we most commonly talk about two concepts: **feed-forward** and **back-propagation**.
+
+Feedforward is not strictly related to training. It simply tells us how data moves through the model. It refers to the action of data being "fed" chronologically from the input layer, trough the hidden layers(if there are any), to the output layer.
+
+This is used both when a model is training and when it is being used to preform a task.
+
+When training we generally use a "training loop". 
+
+Backpropagation is a gradient based method. 
+
+> While backpropagation is the dominant method of training a neural network model there are other training algorthims. Those offer  
+
+## Training algorthims
+
+
 
 # AI vs. machine learing vs. deep learning ?
 

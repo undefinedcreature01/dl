@@ -52,7 +52,7 @@ Generally, they are used when:
 >|---|---|
 >| model | is the program that we give data to in order to preform the task that requires human-like intelligence. <br> (want to predict housing prices based on house size ? - you create a model to do it) |
 >| method | procedures to process data withing a model <br> (they process the housing size-price data ; there can be many within a model) |
-
+>| |   |
 
 </span>
 <br>
@@ -78,13 +78,13 @@ The structure/architecture of a model differs based on the task it is trying to 
 | |   |
 |---|---|
 | regression |   |
+| |   |
 
 |Model architectures||
 |-|-|
 | Regression models | 
 | Decision tree |  |
 | (Artificial) Neural network - (A)NN| model inspired by the biological neural network <br> - connections of neurons data travels through|
-| |   |
 
 ## Methods
 
@@ -99,7 +99,6 @@ Learning paradigms generally tell us how a model interacts with data during trai
 | Semi-Supervised learning | training algorithm uses both labled and unlabled data <br> (usually used when labled data is scarce/expensive)             |
 | Reinforcement learning   | training algorithm trains by interacting - receiving feedback (rewards/penalties) 
 | Self-supervised learning   | |
-| |   |
 
 There are types of methods that utlize learning paradigms, and do not fit very well into the categorization above. They generally tell us what else the model does with the data given - be it labled, unlabled or something in between.
 
@@ -126,7 +125,7 @@ The layred structure comes in handy when we have large amounts of data that need
 
 In the artificial neural networks neurons are also referred to as nodes or units. They take in data either from some external input data (ie. we give it) or from other nodes in the network, process it (run the given data through a function/method that returns a new value of the neuron) and produce an output - that is then sent to other nodes or treated as the final output.
 
-Neural networks are models made up of nodes, that are connected together. These nodes are usually combined into layers.  Nodes of one layer connect only to nodes of the immediately preceding and immediately following layers.
+Neural networks are models made up of nodes, that are connected together. These nodes are usually combined into layers. 
 
 | |   |
 |---|---|
@@ -139,11 +138,11 @@ When a neural network has 2 or more layers, it falls into the category of DNNs -
 
 The nodes can connect to the following layers in differnt ways:
 
-| |   |
+| Connection patterns/direction |   |
 |---|---|
-| |   |
-
-
+| fully connected |  every node of one layer - connects to every node of the next layer |
+| pooling | group of nodes in one layer - connect to one node in the next layer |
+| reccurent | nodes can connect to nodes in the next, its own or the previous layer|
 
 Nodes generally also have a weights, these values represent the "strenght" or importance of a connection between neurons in adjescent layers. 
 
@@ -157,21 +156,38 @@ Nodes generally also have a weights, these values represent the "strenght" or im
 >
 >All the weighted inputs are then summed up and sent to an activation function and this transformed input (output of a node) is then sent onward.
 
+The functions that the summed data recived by a node is sent to are called **activation/transfer functions**
 
-Node connections also have something called **bias term/unit/neuron**. It is a parameter associated with each node in an network - a treshold that the sum of weighted inputs has to reach/surpass in order for the node to "fire"(to send the summed input to an actiavtion function and forward the output).
+Node connections (can) also have something called **bias term/unit**. It is a parameter associated with each node in an network - a treshold that the sum of weighted inputs has to reach/surpass in order for the node to "fire"(to actually forward the output).
 
-
-The functions that data recived by a node is sent to are called **activation functions**
+So each node is characterized by a weight, a bias and an activation function.
 
 #### Activation functions
 
-
-
 | |   |
 |---|---|
+| features  | relevant/useful information about/from a specific instance of data (ie. edges of a picture, pitch of a sound, results of a function)|
 | in-features (input) |   |
 | out-features (output) |   |
 | |   |
+
+Till now I have been referring to the data sent/recieved by a node as just input/ouput. What nodes actually recieve and output are features, relevant information from the data they recieve.
+
+But what exactly (as in data type  etc.) are features ? to understand what kind of data is being sent to/from nodes we need to understand what an activation function is and what exactly it does in a node.
+(The notebook explaining activation functions is [here](notebooks/00_pytorch_activation_functions.ipynb))
+
+
+| Function type |   |
+|---|---|
+| Binary step | linear function -  threshold-based activation |
+
+
+
+There are diffrent way that data moves through the neural network. Most commonly we talk about **feed-forward** and **back-propagation**.
+
+
+
+
 
 
 
@@ -182,7 +198,7 @@ The functions that data recived by a node is sent to are called **activation fun
 ## CNNs (Convolutional Neural Networks)
 
 
-
+# Training models ?
 
 # AI vs. machine learing vs. deep learning ?
 
@@ -206,9 +222,6 @@ Deep learning (DL) is then a "sub-subfield" of AI, but also just a **SUBFIELD** 
 
 Many **SUBFIELDS** of AI (and even of machine learning) **use** machine learning methods. 
 (they are still specialized areas of the study of artificial intelligence, they just aren't truly "standalone").
-
-
-# How do we use any of this ?
 
 
 # Where do we run into problems ?

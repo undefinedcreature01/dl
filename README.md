@@ -174,13 +174,18 @@ So each node is characterized by a weight, a bias and an activation function.
 Till now I have been referring to the data sent/recieved by a node as just input/ouput. What nodes actually recieve and output are features, relevant information from the data they recieve.
 
 But what exactly (as in data type  etc.) are features ? to understand what kind of data is being sent to/from nodes we need to understand what an activation function is and what exactly it does in a node.
-(The notebook explaining activation functions is [here](notebooks/00_pytorch_activation_functions.ipynb))
+
+> This is only a brief explanation of activation functions. There is a notebook file explaining and visually showcasing the functions more in depth [here](notebooks/00_pytorch_activation_functions.ipynb)
+
+
+Linear vs, Non-linear functions:
+
+
 
 
 | Function type |   |
 |---|---|
 | Binary step | linear function -  threshold-based activation |
-
 
 
 There are diffrent way that data moves through the neural network. Most commonly we talk about **feed-forward** and **back-propagation**.

@@ -253,7 +253,7 @@ When training we generally use a "training loop". We do a pass trough a model (o
 |$n$ | number of value pairs/samples  |
 | $y$ = $t$ = $T$ | the ground truth/truth label |
 | $p(y)$ = $p$ = $\hat{y}$ = $s$ | models prediction (usually between 0 and 1) |
-| $ f() $ | activation function - transforms output|
+| $f()$ | activation function - transforms output|
 
 > many symbols are used for the same terms - for the sake of clarity in this file 
 > - $T$ .. truth

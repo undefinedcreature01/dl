@@ -176,11 +176,11 @@ $$f(x) = w * x$$
 
 All the weighted inputs are then summed up. (n = number of nodes sending their inputs to the node that is calculating the sum)
 
-$$sum = w1*x1 + w2*x2 ... wn*xn$$
+$$sum = w_1*x_1 + w_2*x_2 ... w_n*x_n$$
   
 The summed up weighted inputs are then sent to an activation/transfer function and this transformed input (output of a node) is then sent onward. 
 
-$$y = activation\_function(w1*x1 + w2*x2 + b)$$
+$$y = activation\_function(w_1*x_1 + w_2*x_2 + b)$$
 
 Nodes (can) also have something called **bias term/unit** (b in the above equation). It is a parameter(means the value changes when the model is trained) associated with each node in an network used to shift/offset the weighted value of the input. Shoft left to delay or right to accelerate the activation of a node.
 
@@ -291,7 +291,7 @@ So the question is "how sure are you that the instance belong in (x) class ?" - 
 
 | |   |
 |---|---|
-| C | often used as number of classes |
+| $C$ | often used as number of classes |
 | |   |
 
 Logarithm (log) is a function sensitive to differences. What that means is that it will react greatly weather a prediction is 0.1 or 0.9. 
@@ -307,7 +307,7 @@ Since in cross-entropy the final loss is the sum of all losses (divided by the n
 #### **Binary Cross-Entropy - Log Loss**
 > commonly used in binary classification tasks (1 or 0 ?)
 
-$C' = 2 $, where : $ C_1 = 1$ and $ C_2 = 0$ 
+$C' = 2$, where : $C_1 = 1$ and $C_2 = 0$ 
 
 | |   |
 |---|---|
@@ -372,7 +372,7 @@ $$1 * log(1 - s_i)$$
 - when $y_i$ = 1 ; only loss for $C_1$ ; loss for $ C_2 $ falls of because we multiply it by 0, 
 <br> $(1 - T_i) $ to $ (1 - 1) = 0$
 
-> $ y_i * something $ to $ 1 * something $ ; changes nothing 
+> $y_i * something$ to $1 * something$ ; changes nothing 
 
 $$1 * log(s_i)$$
 

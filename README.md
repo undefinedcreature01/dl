@@ -176,6 +176,8 @@ $$f(x) = w * x$$
 
 All the weighted inputs are then summed up. (n = number of nodes sending their inputs to the node that is calculating the sum)
 
+$$ sum = w * x$$
+
 $$ sum\ of\ weighted\ inputs = (w_1*x_1 + w_2*x_2 + w_n*x_n)$$
   
 The summed up weighted inputs are then sent to an activation/transfer function and this transformed input (output of a node) is then sent onward. 

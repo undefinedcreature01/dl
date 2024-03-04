@@ -172,15 +172,15 @@ Nodes generally have a weights, these values represent the "strenght" or importa
 
 Each input value a node recives is multiplied by the weight of the connection it recieved it from, getting a "weighted input". (w = weight, x = input from a node)
 
-$$ f(x) = w * x $$
+$$f(x) = w * x$$
 
 All the weighted inputs are then summed up. (n = number of nodes sending their inputs to the node that is calculating the sum)
 
-$$ sum = w1*x1 + w2*x2 ... wn*xn $$
+$$sum = w1*x1 + w2*x2 ... wn*xn$$
   
 The summed up weighted inputs are then sent to an activation/transfer function and this transformed input (output of a node) is then sent onward. 
 
-$$ y = activation\_function(w1*x1 + w2*x2 + b) $$
+$$y = activation\_function(w1*x1 + w2*x2 + b)$$
 
 Nodes (can) also have something called **bias term/unit** (b in the above equation). It is a parameter(means the value changes when the model is trained) associated with each node in an network used to shift/offset the weighted value of the input. Shoft left to delay or right to accelerate the activation of a node.
 
@@ -272,11 +272,11 @@ These functions tell us how far off the models predictions are - compared to wha
 
 We calculate the mean (average) of the squared difference between each prediction and the desired ouput. Wrong predictions are punished more because the error is squared (so if the difference is big - it squared is even bigger)
 
-$$ MSE(T_i, p_i) = \frac{1}{n} \sum_{i=1}^{n} (T_i - p_i)^2 $$
+$$MSE(T_i, p_i) = \frac{1}{n} \sum_{i=1}^{n} (T_i - p_i)^2$$
 
 So a loss for each example/pair of label - prediction is :
 
-$$ MSE(truth, prediction) = (truth - prediction)^2 $$
+$$MSE(truth, prediction) = (truth - prediction)^2$$
 
 ### Mean Absolute Error (MAE) - L1 Loss
 
@@ -307,7 +307,7 @@ Since in cross-entropy the final loss is the sum of all losses (divided by the n
 #### **Binary Cross-Entropy - Log Loss**
 > commonly used in binary classification tasks (1 or 0 ?)
 
-$ C' = 2 $, where : $ C_1 = 1$ and $ C_2 = 0 $ 
+$C' = 2 $, where : $ C_1 = 1$ and $ C_2 = 0$ 
 
 | |   |
 |---|---|
@@ -342,15 +342,15 @@ The problem we run into with binary classification is that anything that isn't a
 
 This is the equation when **the positive class is 1**.
 
-$$ BCE(T_i, s_i)  =  - \frac{1}{n} *\sum_{i=1}^{n}(T_i * log(p_i) + (1 - T_i) * log(1 - p_i)) $$
+$$BCE(T_i, s_i)  =  - \frac{1}{n} *\sum_{i=1}^{n}(T_i * log(p_i) + (1 - T_i) * log(1 - p_i))$$
 
 Loss for one example/sample is :
 
-$$ BCE(truth, prediction) = (loss\ for\ C_1\ + loss\ for\ C_2) $$
+$$BCE(truth, prediction) = (loss\ for\ C_1\ + loss\ for\ C_2)$$
 
-$ loss\ for\ C_1 = T_i * log(s_i) $
+$loss\ for\ C_1 = T_i * log(s_i)$
 
-$ loss\ for\ C_2 = (1 - T_i) * log(1 - s_i) $
+$loss\ for\ C_2 = (1 - T_i) * log(1 - s_i)$
 
 
 $T_i$ : truth ; binary value (either 1 or a 0)
@@ -363,18 +363,18 @@ $s_i$ : propability ; between 0 and 1 (closer it is to 1 the more the model thin
 
 - when $T_i$ = 0 ; only loss for $C_2$ ; loss for $C_1$ falls off because we multiply it by 0
 
-> $ (1 - T_i) $ to $ (1 - 0) = 1 $, this changes nothing when truth is 0
+> $(1 - T_i)$ to $(1 - 0) = 1$, this changes nothing when truth is 0
 
-$$ 1 * log(1 - s_i) $$ 
+$$1 * log(1 - s_i)$$ 
 
 <br>
 
 - when $y_i$ = 1 ; only loss for $C_1$ ; loss for $ C_2 $ falls of because we multiply it by 0, 
-<br> $ (1 - T_i) $ to $ (1 - 1) = 0 $
+<br> $(1 - T_i) $ to $ (1 - 1) = 0$
 
 > $ y_i * something $ to $ 1 * something $ ; changes nothing 
 
-$$ 1 * log(s_i) $$
+$$1 * log(s_i)$$
 
 We are left with logarthims of our models predictions.
 
@@ -394,6 +394,7 @@ Here each example can belong to one class. The model predictions are withing vec
 <br> The **max** value inside an array is the prediced class - in this case 0.9 at the index 2 - bird.
 
 ### Hinge Loss
+
 
 ### 
 

@@ -178,11 +178,11 @@ All the weighted inputs are then summed up. (n = number of nodes sending their i
 
 $$ sum = w * x$$
 
-$$ sum\ of\ weighted\ inputs = (w_1*x_1 + w_2*x_2 + w_n*x_n)$$
+$$ sum\ of\ weighted\ inputs = (w_1 *\ x_1 + w_2 *\ x_2 + w_n*x_n)$$
   
 The summed up weighted inputs are then sent to an activation/transfer function and this transformed input (output of a node) is then sent onward. 
 
-$$y = activation\_function(w_1*x_1 + w_2*x_2 + b)$$
+$$y = activation\_function(w_1 * x_1 + w_2 * x_2 + b)$$
 
 Nodes (can) also have something called **bias term/unit** (b in the above equation). It is a parameter(means the value changes when the model is trained) associated with each node in an network used to shift/offset the weighted value of the input. Shoft left to delay or right to accelerate the activation of a node.
 

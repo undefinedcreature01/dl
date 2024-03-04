@@ -264,8 +264,7 @@ When training we generally use a "training loop". We do a pass trough a model (o
 These functions tell us how far off the models predictions are - compared to what they should be, so they compare the difference between the prediction and the desired output. (ideal loss is then 0 - they should be the same)
 >They (as other functions inside a model) are very task/problem dependant.
 
-> [! code and visualization here !](notebooks/01_pytorch_loss_functions.ipynb){:target="_blank" rel="noopener noreferrer"}
-
+> <a href="notebooks/01_pytorch_loss_functions.ipynb" target="_blank">! code and visualization here !</a>
 
 
 ### Mean Squared Error (MSE) - L2/Quadratic Loss

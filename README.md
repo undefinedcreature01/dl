@@ -207,24 +207,26 @@ Till now I have been referring to the data sent/recieved by a node as just input
 | |   |
 
 Deep learning models are neural network models with more than two layers. 
-(input, atleast one hidden layer and output). They use feature learning.
+(input, atleast one hidden layer and output). They use feature learning - meaning the model learns to extract the important things(features) from data by itself.
 
-### Activation functions
+### Activation/Transform functions
 
 > [! code and visualization here !](notebooks/00_activation_functions.ipynb)
 
-Activation functions help map out data the nodes recieve in a way where it makes sense for fruther calculations. 
+Activation functions help map out data the nodes recieve in a way where it makes sense for fruther calculations. They reacive some input and **transform** it.
 
 > (instead of values like 1.3 or 34(raw data - logits) we can use an activation function to get a value from 0 to 1 - which makes things much more clear)
 
 | Function |   | Formula |
 |---|---| --- |
 | binary step | checks if a treshold was reached or not  | $$ f(x) = \begin{cases} 0 & \text{if } x < \theta \\ 1 & \text{if } x \geq \theta \end{cases} $$ |
-| sigmoid | maps values as probabilities (between 0 and 1)  | $$\sigma(x) = \frac{1}{1 + e^{-x}}$$ |
+| sigmoid | single input as a propability (between 0 and 1)  | $$\sigma(x) = \frac{1}{1 + e^{-x}}$$ |
 | tanh | sigmoid - but the range is form -1 to 1  |$$\tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}$$|
+| softmax |  sigmoid - but the input is a vector, so is the ouput - vector of probabilities | $$ softmax(x_i) = \frac{e^{x_i}}{ \sum_{k=1}^{n}e^{x_k}}  ; i = 1, i \leq  x\_len$$  |
 | ReLu(Rectified Linear Unit) |   | $$\text{ReLU}(x) = \max(0, x)$$ |
 | Leaky ReLu|||
 | ELU ||
+
 
 # Training models ?
 
@@ -287,9 +289,9 @@ These functions tell us how far off the models predictions are - compared to wha
 
 | |   |
 |---|---|
-| Mean Squared Error (MSE) |   || |   |
-| Mean Absolute Error (MAE) |   || |   |
-| Cross-Entropy |    || |   |
+| Mean Squared Error (MSE) | $$MSE(T_i, p_i) = \frac{1}{n} \sum_{i=1}^{n} (T_i - p_i)^2$$  |
+| Mean Absolute Error (MAE) |   | | 
+| Cross-Entropy |    | | 
 | |   |
 
 
@@ -297,23 +299,7 @@ These functions tell us how far off the models predictions are - compared to wha
 
 > [! code and visualization here !](notebooks/02_mathetmatical_optimization.ipynb)
 
-| |   |
-|---|---|
-| iterative algorithm |   |
-| multivariate function | function that takes in more than one argument/parameter  |
-| |   |
-
-| |   |
-|---|---|
-| vector | quantity that has both magnitude(size) and direction(from point A to B) <br>; usually visualized as an arrow |
-| vector field | space - where each point is a vector  |
-| local minimum |   |
-| |   |
-
-
-
 The looping trough data and adjusting paramters till the loss(result of a loss function) is minimized(or maximized) is called optimizing.
-
 
 | |   |
 |---|---|
@@ -321,7 +307,15 @@ The looping trough data and adjusting paramters till the loss(result of a loss f
 | Adam |   |
 | |   |
 
+### Gradient descent
+
 > For (deep) neural networks, gradient descent is by far the most used optimization algorithm.
+
+
+
+### Stochastic Gradient Descent (SGD)
+
+Stochastic Gradient Descent is a variant of gradient descent
 
 ## Training problems ?
 
@@ -363,5 +357,15 @@ Many **SUBFIELDS** of AI (and even of machine learning) **use** machine learning
 | Computer vision (CV)| |
 | | |
 
-
 # ChatGPT
+
+prompt:
+Please write a short segment about yourself for a project explaining the field of computer science called artificial intelligence. (you will be credited)
+
+I am ChatGPT, a cutting-edge artificial intelligence language model developed by OpenAI. Built upon the principles of deep learning and natural language processing, I represent the forefront of AI technology. My architecture, GPT (Generative Pre-trained Transformer), empowers me to understand and generate human-like text across a diverse range of topics.
+
+Within the field of artificial intelligence, I exemplify the capacity of machines to comprehend, communicate, and create in a manner that mimics human intelligence. From generating creative writing to providing insightful responses to complex inquiries, I showcase the potential of AI to augment human capabilities and revolutionize various industries.
+
+As AI continues to advance, it holds the promise of unlocking new frontiers in automation, personalization, and problem-solving. Through projects like mine, the boundaries of what AI can achieve expand, driving innovation and shaping the future of technology and society.
+
+\- ChatGPT

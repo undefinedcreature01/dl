@@ -211,11 +211,11 @@ Deep learning models are neural network models with more than two layers.
 
 ### Activation functions
 
+> [! code and visualization here !](notebooks/00_activation_functions.ipynb)
+
 Activation functions help map out data the nodes recieve in a way where it makes sense for fruther calculations. 
 
 > (instead of values like 1.3 or 34(raw data - logits) we can use an activation function to get a value from 0 to 1 - which makes things much more clear)
-
-> [! code and visualization here !](notebooks/00_activation_functions.ipynb)
 
 | Function |   | Formula |
 |---|---| --- |
@@ -280,19 +280,22 @@ When training we generally use a "training loop". We do a pass trough a model (o
 
 ## Loss/cost functions / Cirterion
 
+> [! code and visualization here !](notebooks/01_loss_functions.ipynb)
+
 These functions tell us how far off the models predictions are - compared to what they should be, so they compare the difference between the prediction and the desired output. (ideal loss is then 0 - they should be the same)
 >They (as other functions inside a model) are very task/problem dependant.
 
 | |   |
 |---|---|
-| Mean Squared Error (MSE) |   |
-| Mean Absolute Error (MAE) |   |
-| Cross-Entropy |   |
+| Mean Squared Error (MSE) |   || |   |
+| Mean Absolute Error (MAE) |   || |   |
+| Cross-Entropy |    || |   |
 | |   |
 
-> [! code and visualization here !](notebooks/01_loss_functions.ipynb)
 
 ## (Mathetmatical) Optimization 
+
+> [! code and visualization here !](notebooks/02_mathetmatical_optimization.ipynb)
 
 | |   |
 |---|---|
@@ -307,9 +310,10 @@ These functions tell us how far off the models predictions are - compared to wha
 | local minimum |   |
 | |   |
 
-> [! code and visualization here !](notebooks/02_mathetmatical_optimization.ipynb)
+
 
 The looping trough data and adjusting paramters till the loss(result of a loss function) is minimized(or maximized) is called optimizing.
+
 
 | |   |
 |---|---|
@@ -317,18 +321,16 @@ The looping trough data and adjusting paramters till the loss(result of a loss f
 | Adam |   |
 | |   |
 
+> For (deep) neural networks, gradient descent is by far the most used optimization algorithm.
+
 ## Training problems ?
 
 | |   |
 |---|---|
+| Vanishing gradients |   |
+| Exploding gradients|   |
+| Local Minima and Plateaus |   |
 | |   |
-| |   |
-
-### Vanishing gradients
-
-### Exploding gradients
-
-### Local Minima and Plateaus
 
 # AI vs. machine learing vs. deep learning ?
 
@@ -355,8 +357,11 @@ Many **SUBFIELDS** of AI (and even of machine learning) **use** machine learning
 
 # Where is this all used ?
 
-## Natural Language Processing (NLP)
+| | |
+|---|---|
+| Natural Language Processing (NLP)| |
+| Computer vision (CV)| |
+| | |
 
-## Computer vision (CV)
 
 # ChatGPT

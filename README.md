@@ -283,161 +283,46 @@ When training we generally use a "training loop". We do a pass trough a model (o
 These functions tell us how far off the models predictions are - compared to what they should be, so they compare the difference between the prediction and the desired output. (ideal loss is then 0 - they should be the same)
 >They (as other functions inside a model) are very task/problem dependant.
 
+| |   |
+|---|---|
+| Mean Squared Error (MSE) |   |
+| Mean Absolute Error (MAE) |   |
+| Cross-Entropy |   |
+| |   |
+
 > [! code and visualization here !](notebooks/01_loss_functions.ipynb)
 
-
-### Mean Squared Error (MSE) - L2/Quadratic Loss
-
-> commonly used in regression tasks (ie. linear graphs)
-
-We calculate the mean (average) of the squared difference between each prediction and the desired ouput. Wrong predictions are punished more because the error is squared (so if the difference is big - it squared is even bigger)
-
-$$MSE(T_i, p_i) = \frac{1}{n} \sum_{i=1}^{n} (T_i - p_i)^2$$
-
-So a loss for each example/pair of label - prediction is :
-
-$$MSE(truth, prediction) = (truth - prediction)^2$$
-
-### Mean Absolute Error (MAE) - L1 Loss
-
-### Cross-Entropy  
-> commonly used in classification tasks
-
-This is used when we are "guessing" if something belongs in a certain class or not. 
-
-So the question is "how sure are you that the instance belong in (x) class ?" - and generally the asnwers are between 0 and 1 (like procenteges are between 0% and 100%). So if im very sure i'd say 99% - which as a prediction would map to 0.99 
-
->(this is what activation functions do - take in some input and output it in a useful way).
-
-| |   |
-|---|---|
-| $C$ | often used as number of classes |
-| |   |
-
-Logarithm (log) is a function sensitive to differences. What that means is that it will react greatly weather a prediction is 0.1 or 0.9. 
-
-$log(0.1)≈$ (big loss)
-
-$log⁡(0.9)≈ $ (small loss)
-
-Since in cross-entropy the final loss is the sum of all losses (divided by the number of samples) we want those losses to be as small as possible - meaning whatever is sent to the log function should be a high value.
-
-> When the number of classes is more than two(binary classification) it is a multi-class classification.
-
-#### **Binary Cross-Entropy - Log Loss**
-> commonly used in binary classification tasks (1 or 0 ?)
-
-$C' = 2$, where : $C_1 = 1$ and $C_2 = 0$ 
-
-| |   |
-|---|---|
-| positive class | arbitrary.. (usually just 1), the "more significant" class ; this is what the model is referencing    |
-| negative class | the other class (usually 0)  |
-| |   |
-
-Here when asking the question "how sure are you that the instance belong in (x) class ?" the x class is the positive class, if we don't we run into a small problem.
-
-> "how sure are you that the instance belongs in **class 1** ?"
-<br> - very! 99% 
-<br>"how sure are you that this new instance belongs in **class 0** ?" 
-<br> - highly ! 89% !
-
-What is the problem here ?
-
-So for the sake of easier understanding let's say we are predicting weather there is a cat(1) or a dog(0) on an image.
-
-We give a model a picture and it returns 0.9. What does that tell us ? Nothing because this picture doesn't have a label yet (this is what the model is for). We don't know what is on the picture so how could we ask a question in the format of "how sure are you that the instance belongs in (x) class ?".
-
-"So just pick a class and let the model reference it when asnwering!" Bingo.
-
-This is where we bring in the term positive class. The referenced class.
-
-Let's say we pick cat as the positive class. This means the models predictions will answer the question "how sure are you that this new instance is a cat ?"
-
-The model would return something like 0.9 if it thinks there is a cat. But if it thinks there is a dog(so it is like 5% sure there is a cat there) the returned value would be 0.05 (lower value because it doesn't think the sample belongs into the positive class)
-
->but if we flip it so dog(0) is the positive class then the model will predict 0.7 if it thinks it there a dog and 0.1 if it thinks there is a cat (because the positive class is dog)
-
-The problem we run into with binary classification is that anything that isn't a cat is a dog. Or in more real terms everything that isn't a positive class is the negative class - even if it is neither. 
-> This is where we turn this problem into a multi-class one, adding a third option/class.
-
-First let's see what BCE does. This is the equation when **the positive class is 1**. 
-> (we run into some small problems if the positive class is 0 ; ie. we are punishing the correct answers)
-
-$$BCE(T_i, s_i)  =  - \frac{1}{n} *\sum_{i=1}^{n}(T_i * log(p_i) + (1 - T_i) * log(1 - p_i))$$
-
-Loss for one example/sample is :
-
-$$BCE(truth, prediction) = (loss\ for\ C_1\ + loss\ for\ C_2)$$
-
-$loss\ for\ C_1 = T_i * log(s_i)$
-
-$loss\ for\ C_2 = (1 - T_i) * log(1 - s_i)$
-
-$T_i$ : truth ; binary value (either 1 or a 0)
-> respresents the "class" of the example
-
-$s_i$ : propability ; between 0 and 1 (closer it is to 1 the more the model thinks the sample belongs into the positive class)
-> how confident is the model that the example belongs in the positive class
-
-<br>
-
-- when $T_i$ = 0 ; only loss for $C_2$ ; loss for $C_1$ falls off because we multiply it by 0
-
-> $(1 - T_i)$ to $(1 - 0) = 1$, this changes nothing when truth is 0
-
-$$1 * log(1 - s_i)$$ 
-
-<br>
-
-- when $y_i$ = 1 ; only loss for $C_1$ ; loss for $ C_2 $ falls of because we multiply it by 0, 
-<br> $(1 - T_i) $ to $ (1 - 1) = 0$
-
-> $y_i * something$ to $1 * something$ ; changes nothing 
-
-$$1 * log(s_i)$$
-
-We are left with logarthims of our models predictions.
-
-Ideally the value sent to the log function should be high in both cases.
-If the truth is 1 then the model should output a high value ($\hat{y}_i$ = 0.9+), but if the truth is 0 then the model should output a low value ($\hat{y}_i$ = 0.1-). But because the positive class is 1 what we send to log when truth is not the positive class(0) is $(1-0.1) = 0.9$ (a high value) - making the loss really small because the prediction is correct even if the models output isn't high.
-
-#### **Categorical Cross-Entropy (CCE) - Softmax Loss**
-
-> commonly used in multi-class classification tasks (1 or 2 or 3 .. ?)
-
-When we have more than two classes or categories that our samples can have we use Categorical CE.
-
-Here each example can belong to one class. The model predictions are withing vector(a 1D array), where each index presents a class and the value on that index the propability of the example belonging to that class.
-
-> So let's expand on the binary dog/cat prediction model and make it multi-class by also being able to predict if there is a bird on an image. 
-<br> Each category is associated with an index in a vector : dog = 0, cat = 1, bird = 2 so the array for EACH sample looks something like: [0.2, 0.1, 0.9]. (when testing the truths are also provided with a vector of the same size as the number of classes - so [0,0,1])
-<br> The **max** value inside an array is the prediced class - in this case 0.9 at the index 2 - bird.
-
 ## (Mathetmatical) Optimization 
+
+| |   |
+|---|---|
+| iterative algorithm |   |
+| multivariate function | function that takes in more than one argument/parameter  |
+| |   |
 
 | |   |
 |---|---|
 | vector | quantity that has both magnitude(size) and direction(from point A to B) <br>; usually visualized as an arrow |
 | vector field | space - where each point is a vector  |
 | local minimum |   |
-| iterative algorithm |   |
-| multivariate function | function that takes in more than one argument/parameter  |
 | |   |
 
-> [! code and visualization here !](notebooks/02_useful_concepts.ipynb)
+> [! code and visualization here !](notebooks/02_mathetmatical_optimization.ipynb)
 
 The looping trough data and adjusting paramters till the loss(result of a loss function) is minimized(or maximized) is called optimizing.
 
-### Gradient descent
-
-#### Gradient
-
-It is a vector field. 
-
-### Adam
+| |   |
+|---|---|
+| Gradient descent |   |
+| Adam |   |
+| |   |
 
 ## Training problems ?
+
+| |   |
+|---|---|
+| |   |
+| |   |
 
 ### Vanishing gradients
 

@@ -226,14 +226,9 @@ Activation functions help map out data the nodes recieve in a way where it makes
 
 > (instead of values like 1.3 or 34(raw data - logits) we can use an activation function to get a value from 0 to 1 - which makes things much more clear)
 
-| Function |   | |
-|---|---| --- |
-| binary step | checks if a treshold was reached or not  | $$f(x) =\begin{cases}0 & \text{if } x < 0 \\1 & \text{if } x \geq 0 \end{cases} $$ |
-| sigmoid | single input as a propability (between 0 and 1)  | $$\sigma(x) = \frac{1}{1 + e^{-x}}$$ |
-| tanh | sigmoid - but the range is form -1 to 1  |$$\tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}$$|
-| softmax |  sigmoid - but the input is a vector, so is the ouput - vector of probabilities | $$ softmax(x_i) = \frac{e^{x_i}}{ \sum_{k=1}^{n}e^{x_k}}  ; i = 1, i \leq  x\_len$$  |
-| ReLu(Rectified Linear Unit) | is the positive part of the parameter (if it is negative returns 0)   | $$ ReLu(x) = \max(0, x)$$ $$ x \text{ if } x \geq 0 \atop 0 \text{ if } x < 0$$|
-| Leaky ReLu| same as ReLu but allows for negative values to exist(small slope)|$$ x \text{ if } x \geq 0 \atop x*0.01 \text{ if } x < 0$$ |
+- binary step
+
+checks if a treshold was reached or not
 
 $$
 f(x) =
@@ -243,7 +238,49 @@ f(x) =
 \end{cases}
 $$
 
+- sigmoid 
 
+single input as a propability (between 0 and 1)
+
+$$\sigma(x) = \frac{1}{1 + e^{-x}}$$
+
+- tanh
+
+sigmoid - but the range is form -1 to 1
+
+$$\tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}$$
+
+- softmax
+
+sigmoid - but the input is a vector, so is the ouput - vector of probabilities
+
+$$ softmax(x_i) = \frac{e^{x_i}}{ \sum_{k=1}^{n}e^{x_k}}  ; i = 1, i \leq  x\_len$$ 
+
+- ReLu(Rectified Linear Unit)
+
+is the positive part of the parameter (if it is negative returns 0)
+
+$$ ReLu(x) = \max(0, x)$$
+
+$$
+f(x) =
+\begin{cases}
+x & \text{if } x \geq 0 \\
+0 & \text{if } x < 0
+\end{cases}
+$$
+
+- Leaky ReLu
+
+same as ReLu but allows for negative values to exist(small slope)
+
+$$
+f(x) =
+\begin{cases}
+x & \text{if } x \geq 0 \\
+x*slope & \text{if } x < 0
+\end{cases}
+$$
 
 # Training models ?
 

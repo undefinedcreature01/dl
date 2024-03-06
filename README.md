@@ -51,7 +51,7 @@ Generally, they are used when:
 >| |   |
 >|---|---|
 >| model | is the program that we give data to in order to preform the task that requires human-like intelligence. <br> (want to predict housing prices based on house size ? - you create a model to do it) |
->| method | procedures to process data withing a model <br> (they process the housing size-price data ; there can be many within a model) |
+>| method | procedures to process data within a model <br> (they process the housing size-price data ; there can be many within a model) |
 >| |   |
 
 </span>
@@ -77,8 +77,8 @@ The structure/architecture of a model differs based on the task it is trying to 
 
 | |   |
 |---|---|
-| regression |  method used to model the relationship between a dependent variable (ie. cost of a house) and one or more independent variables(ie. size of a house), aiming to predict the value of the dependent variable based on the values of the independent variables |
-| classification |   |
+| regression |  predict continuous numerical values based on input features |
+| classification | method for figuring out the category of an input  |
 | |   |
 
 |Model architectures||
@@ -91,11 +91,20 @@ The structure/architecture of a model differs based on the task it is trying to 
 >[! image source !](https://editor.analyticsvidhya.com/uploads/12569Decision%20Tree.png)
 
 
+- Regression models
+
+They are used to predict continuous numerical values based on input features.
+
+More specifically they are used to model the relationship between a dependent variable (ie. cost of a house-y) and one or more independent variables(ie. size of a house-x), aiming to predict the value of the dependent variable based on the values of the independent variables
+
 |||
 |-|-|
-| Regression models | |
-| Transformer-Based models | uses ANNs |
+| Linear Regression |  assume a linear relationship between the input features and the target variable(output is based on a linear function) |
+| Polynomial Regression| extands linear regression - reletionship is a polynomial function |
 |||
+
+- Transformer-Based models
+
 
 ## Methods
 
@@ -425,7 +434,7 @@ The looping trough data and adjusting paramters till the loss(result of a loss f
 | |   |
 |---|---|
 | Gradient descent | finding the minimum of a loss function by going in the direction of the steepest slope  |
-| Adam (Adaptive Moment Estimation)|   |
+| Adam (Adaptive Moment Estimation)| adapts the learning rate as the model trains - based on the gradient |
 | |   |
 
 ## Training problems ?
@@ -435,7 +444,7 @@ The looping trough data and adjusting paramters till the loss(result of a loss f
 | Vanishing gradients | gradients become too small to make changes |
 | Exploding gradients| gradients become too big ; unstable updates  |
 | Local Minima and Plateaus | model gets stuck(nothing is changing)  |
-|  Dying ReLu | outputs of nodes are blow 0 - so everything becomes 0 (it kills the output)  |
+|  Dying ReLu | outputs of nodes are below 0 - so everything becomes 0 (it kills the output)  |
 | |   |
 
 <img src="assets/gradient_problems.png" height="300px" width="650px">
@@ -479,10 +488,6 @@ Many **SUBFIELDS** of AI (and even of machine learning) **use** machine learning
 | Computer vision (CV)| extraction of information from digital images or videos | object identification, face recognition|
 | Robotics | physical machines to preform the tasks|
 | | |
-
-## Computer vision (how computers "see")
-
-A classic example of what deep learning(more specifically CNN models) is used for.
 
 # ChatGPT
 

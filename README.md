@@ -83,10 +83,14 @@ The structure/architecture of a model differs based on the task it is trying to 
 
 |Model architectures||
 |-|-|
-| Regression models | |
 | Decision tree |  |
 | (Artificial) Neural network - (A)NN| model inspired by the biological neural network <br> - connections of neurons data travels through|
 
+|||
+|-|-|
+| Regression models | |
+| Transformer-Based models |
+|||
 ## Methods
 
 Methods are procedures for accomplishing or approaching something - generally a goal. 
@@ -97,10 +101,9 @@ Learning paradigms generally tell us how a model interacts with data during trai
 | Learning paradigms|  |
 |-|-|
 | Supervised learning      | training algorithm uses labled training data (tries getting closer to the correct label)                  |
-| Unsupervised learning    | training algorithm uses unlabled training data - discoveres patterns by itself <br> (usually based on the difference between input and output)                              |
+| Unsupervised learning    | training algorithm uses unlabled training data - discoveres patterns by itself <br> (usually based on the difference between input and output)   
 | Semi-Supervised learning | training algorithm uses both labled and unlabled data <br> (usually used when labled data is scarce/expensive)             |
 | Reinforcement learning   | training algorithm trains by interacting - receiving feedback (rewards/penalties) 
-| Self-supervised learning   | |
 
 There are types of methods that utlize learning paradigms, and do not fit very well into the categorization above. They generally tell us what else the model does with the data given - be it labled, unlabled or something in between.
 
@@ -108,7 +111,7 @@ There are types of methods that utlize learning paradigms, and do not fit very w
 |-|-|
 | Feature/representation learning      | model automatically identifies/extracts features from raw data <br> (unsupervised, supervised)     
 |Association rule learning| model identifies 'rules' to store - to process data with <br> IF data_is_something THEN output |
-| |   |
+| Self-Supervised learning | predict a part of its input from another(diffrent) part of the input (without external labels) |
 
 ## (Artificial) Neural Networks (ANNs)
 
@@ -122,7 +125,7 @@ The layred structure comes in handy when we have large amounts of data that need
 | layer |  building block, groups up nodes that preform specific operations on data |
 | weight | how important a value from a neuron has <br> (generally multiplied - so if a weight is really low the output value will also be low - having less impact)  |
 | treshold| a point something has to cross |
-| link/connection |   |
+| link/connection | path between two nodes - by which they send/recieve outputs/inputs  |
 | |   |
 
 <img src="assets/neural_network.png" height="240px" width="500px">
@@ -148,9 +151,21 @@ The nodes can connect to the following layers in differnt ways:
 | pooling | group of nodes in one layer - connect to one node in the next layer |
 | reccurent | nodes can connect to nodes in the next, its own or the previous layer |
 
-When a neural network has 2 or more layers, it falls into the category of DNNs - deep learning networks.
+- Pooling example : max pooling (maximum value in a pathc)
 
-We have two borad types of ANNs. They define how the data flows trough the mode.
+<img src="assets/pooling_01.png" height="300px" width="650px">
+
+>[! image source !](https://paperswithcode.com/method/max-pooling)
+
+- example of an RNN (with reccurent node connection)
+
+<img src="assets/rnn.png" height="230px" width="550px">
+
+>[! image source !](https://towardsdatascience.com/recurrent-neural-networks-rnns-3f06d7653a85)
+
+When a neural network has 2 or more layers, it falls into the category of **DNNs - deep learning networks**.
+
+We have two borad types of (deep) ANNs. They define how the data flows trough the mode.
 
 - FNNs (feedforward) 
 
@@ -207,16 +222,6 @@ At the start(when a model is first created) these weights and biases are just so
 | |   |
 
 Till now I have been referring to the data sent/recieved by a node as just input/ouput. What nodes actually recieve and output are features, relevant information from the data they recieve. 
-
-### Deep learning
-
-| |   |
-|---|---|
-| logits |  raw output of a model (values before an activation function is preformed) |
-| |   |
-
-Deep learning models are neural network models with more than two layers. 
-(input, atleast one hidden layer and output). They use feature learning - meaning the model learns to extract the important things(features) from data by itself.
 
 ### Activation/Transform functions
 
@@ -283,6 +288,45 @@ x & \text{if } x \geq 0 \\
 x*slope & \text{if } x < 0
 \end{cases}
 $$
+
+### Deep learning
+
+| |   |
+|---|---|
+| logits |  raw output of a model (values before an activation function is preformed) |
+| |   |
+
+Deep learning models are neural network models with more than two layers. 
+(input, atleast one hidden layer and output). They use feature learning - meaning the model learns to extract the important things(features) from data by itself.
+
+Having multiple layers and nodes is ideal for processing large amounts of data, like images(which these types of networks are usually used for).
+
+> Image is just a big matrix of numbers - making it ideal  
+
+#### Convolutional Neural Network (CNN/ConvNet)
+
+| |   |
+|---|---|
+| convolution| mathematical operation  |
+| kernel| filter |
+| spatial dimension |   |
+| |   |
+
+<img src="assets/cnn_01.jpg" height="340px" width="750px">
+
+>[! image source !](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53)
+
+- convolutional layers
+
+CNNs consist of filters - that they adjust with training - able to extract what is needed from the given input(usually an image). 
+
+Each filter learns to detect a diffrent feature(ie. edges, textures)
+
+The layers in such a network are used for pooling. They take a really large input - and slowly extract important information(they reduce the spatial dimension).
+
+- convolution operation
+
+
 
 # Training models ?
 
@@ -422,14 +466,14 @@ Many **SUBFIELDS** of AI (and even of machine learning) **use** machine learning
 | Computer vision (CV)| extraction of information from digital images or videos | object identification, face recognition|
 | | |
 
-
 <img src="assets/ai_ml_dl.png" height="480px" width="520px">
 
 >[! image source !](https://www.researchgate.net/figure/sualization-of-algorithms-vs-artificial-intelligence-vs-machine-learning-vs-deep_fig7_339997962)
 
-## Object idientification
+## Computer vision
 
-So now we understand that deep learning excels at taking an input(generally a 1D )
+A classic example of what deep learning(more specifically CNN models) is used for.
+
 
 # ChatGPT
 

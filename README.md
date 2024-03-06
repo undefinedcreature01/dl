@@ -125,7 +125,7 @@ The layred structure comes in handy when we have large amounts of data that need
 | link/connection |   |
 | |   |
 
-<img src="assets/neural_network.png" height="290px" width="500px">
+<img src="assets/neural_network.png" height="240px" width="500px">
 
 >[! image source !](https://medium.com/@RosieCampbell/demystifying-deep-neural-nets-efb726eae941)
 
@@ -228,8 +228,7 @@ Activation functions help map out data the nodes recieve in a way where it makes
 
 | Function |   | Formula |
 |---|---| --- |
-| binary step | checks if a treshold was reached or not  | $$ f(x) = { 0 \text{ if } x < 0 \atop 1 \text{ if } x \geq 0 }$$
-|
+| binary step | checks if a treshold was reached or not  | $$ f(x) = { 0 \text{ if } x < 0 \atop 1 \text{ if } x \geq 0 }$$|
 | sigmoid | single input as a propability (between 0 and 1)  | $$\sigma(x) = \frac{1}{1 + e^{-x}}$$ |
 | tanh | sigmoid - but the range is form -1 to 1  |$$\tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}$$|
 | softmax |  sigmoid - but the input is a vector, so is the ouput - vector of probabilities | $$ softmax(x_i) = \frac{e^{x_i}}{ \sum_{k=1}^{n}e^{x_k}}  ; i = 1, i \leq  x\_len$$  |
@@ -304,7 +303,7 @@ These functions tell us how far off the models predictions are - compared to wha
 |---|---|
 | Mean Squared Error (MSE) | $$MSE(T_i, p_i) = \frac{1}{n} \sum_{i=1}^{n} (T_i - p_i)^2$$  |
 | Mean Absolute Error (MAE) |   | | 
-| Cross-Entropy |    | | 
+| Cross-Entropy |    |  $$ \text{CE}(T, p) = - \sum_{i=1}^{C} T_i \cdot \log_e(p_i) $$| 
 | |   |
 
 
@@ -362,7 +361,7 @@ Many **SUBFIELDS** of AI (and even of machine learning) **use** machine learning
 
 ## Object idientification
 
-
+So now we understand that deep learning excels at taking an input(generally a 1D )
 
 # ChatGPT
 

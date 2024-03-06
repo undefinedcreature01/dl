@@ -83,14 +83,20 @@ The structure/architecture of a model differs based on the task it is trying to 
 
 |Model architectures||
 |-|-|
-| Decision tree |  |
+| Decision tree |  tree-like structure : each node represents a feature, each branch represents a decision |
 | (Artificial) Neural network - (A)NN| model inspired by the biological neural network <br> - connections of neurons data travels through|
+
+<img src="assets/dec_tree.png" height="340px" width="600px">
+
+>[! image source !](https://editor.analyticsvidhya.com/uploads/12569Decision%20Tree.png)
+
 
 |||
 |-|-|
 | Regression models | |
-| Transformer-Based models |
+| Transformer-Based models | uses ANNs |
 |||
+
 ## Methods
 
 Methods are procedures for accomplishing or approaching something - generally a goal. 
@@ -309,7 +315,7 @@ Having multiple layers and nodes is ideal for processing large amounts of data, 
 |---|---|
 | convolution| mathematical operation  |
 | kernel| filter |
-| spatial dimension |   |
+| spatial dimension | arrangement of data along different axes in a multidimensional space  |
 | |   |
 
 <img src="assets/cnn_01.jpg" height="340px" width="750px">
@@ -426,14 +432,20 @@ The looping trough data and adjusting paramters till the loss(result of a loss f
 
 | |   |
 |---|---|
-| Vanishing gradients | during backpropagation - gradient becomes too small to make changes |
-| Exploding gradients| during backpropagation - gradients become too big ; unstable updates  |
-| Local Minima and Plateaus |   |
+| Vanishing gradients | gradients become too small to make changes |
+| Exploding gradients| gradients become too big ; unstable updates  |
+| Local Minima and Plateaus | model gets stuck(nothing is changing)  |
+|  Dying ReLu | outputs of nodes are blow 0 - so everything becomes 0 (it kills the output)  |
+| |   |
 
+<img src="assets/gradient_problems.png" height="300px" width="650px">
 
-<img src="assets/gradient_problems.png" height="350px" width="650px">
+>[! image source !]()
 
->[! image source !](https://www.comet.com/site/blog/vanishing-exploding-gradients-in-deep-neural-networks/)
+<img src="assets/training_problems_02.png" height="350px" width="650px">
+
+>[! image source !](https://towardsdatascience.com/quantum-computing-and-ai-tie-the-knot-d4440267451b)
+
 
 # AI vs. machine learing vs. deep learning ?
 
@@ -458,22 +470,19 @@ Deep learning (DL) is then a "sub-subfield" of AI, but also just a **SUBFIELD** 
 Many **SUBFIELDS** of AI (and even of machine learning) **use** machine learning methods. 
 (they are still specialized areas of the study of artificial intelligence, they just aren't truly "standalone").
 
+
 # Where is this all used ?
 
 | | |
 |---|---|
 | Natural Language Processing (NLP)| interpret/generate human language | AI assistants |
 | Computer vision (CV)| extraction of information from digital images or videos | object identification, face recognition|
+| Robotics | physical machines to preform the tasks|
 | | |
 
-<img src="assets/ai_ml_dl.png" height="480px" width="520px">
-
->[! image source !](https://www.researchgate.net/figure/sualization-of-algorithms-vs-artificial-intelligence-vs-machine-learning-vs-deep_fig7_339997962)
-
-## Computer vision
+## Computer vision (how computers "see")
 
 A classic example of what deep learning(more specifically CNN models) is used for.
-
 
 # ChatGPT
 

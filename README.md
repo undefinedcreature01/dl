@@ -356,9 +356,13 @@ Many **SUBFIELDS** of AI (and even of machine learning) **use** machine learning
 
 | | |
 |---|---|
-| Natural Language Processing (NLP)| |
-| Computer vision (CV)| |
+| Natural Language Processing (NLP)| interpret/generate human language | AI assistants |
+| Computer vision (CV)| extraction of information from digital images or videos | object identification, face recognition|
 | | |
+
+## Object idientification
+
+
 
 # ChatGPT
 

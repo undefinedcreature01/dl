@@ -125,7 +125,9 @@ The layred structure comes in handy when we have large amounts of data that need
 | link/connection |   |
 | |   |
 
-<img src="assets/simple_neural_network.jpg" height="500px" width="550px">
+<img src="assets/neural_network.png" height="290px" width="5050px">
+
+>[! image source !](https://medium.com/@RosieCampbell/demystifying-deep-neural-nets-efb726eae941)
 
 In the artificial neural networks neurons are also referred to as nodes or units. They take in data either from some external input data (ie. we give it) or from other nodes in the network, process it (run the given data through a function/method that returns a new value of the neuron) and produce an output - that is then sent to other nodes or treated as the final output.
 
@@ -192,6 +194,11 @@ Being able to shift the function result means it is not stuck at [0,0] like most
 So each node is characterized by a weight, a bias and an activation function.
 At the start(when a model is first created) these weights and biases are just some random numbers. Throught training a model tweaks these paramters in a way where it is then able to calculate the desired output from given inputs.
 
+<img src="assets/neuron.jpg" height="300px" width="650px">
+
+>[! image source !](https://towardsdatascience.com/deep-learning-versus-biological-neurons-floating-point-numbers-spikes-and-neurotransmitters-6eebfa3390e9)
+
+
 | |   |
 |---|---|
 | features  | relevant/useful information about/from a specific instance of data (ie. edges of a picture, pitch of a sound, results of a function)|
@@ -221,14 +228,13 @@ Activation functions help map out data the nodes recieve in a way where it makes
 
 | Function |   | Formula |
 |---|---| --- |
-| binary step | checks if a treshold was reached or not  | $$  f(x) = \begin{cases} 0 & \text{if } x < \theta \\ 1 & \text{if } x \geq \theta \end{cases} $$ |
+| binary step | checks if a treshold was reached or not  | $$ f(x) = { 0 \text{ if } x < 0 \atop 1 \text{ if } x \geq 0 }$$
+|
 | sigmoid | single input as a propability (between 0 and 1)  | $$\sigma(x) = \frac{1}{1 + e^{-x}}$$ |
 | tanh | sigmoid - but the range is form -1 to 1  |$$\tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}$$|
 | softmax |  sigmoid - but the input is a vector, so is the ouput - vector of probabilities | $$ softmax(x_i) = \frac{e^{x_i}}{ \sum_{k=1}^{n}e^{x_k}}  ; i = 1, i \leq  x\_len$$  |
-| ReLu(Rectified Linear Unit) |   | $$\text{ReLU}(x) = \max(0, x)$$ |
-| Leaky ReLu|||
-| ELU ||
-
+| ReLu(Rectified Linear Unit) | is the positive part of the parameter (if it is negative returns 0)   | $$ ReLu(x) = \max(0, x)$$ $$ ReLu(x) = { x \text{ if } x \geq 0 \atop 0 \text{ if } x < 0}$$|
+| Leaky ReLu| same as ReLu but allows for negative values to exist(small slope)|$$ LReLu(x) = { x \text{ if } x \geq 0 \atop x*0.01 \text{ if } x < 0}$$ |
 
 # Training models ?
 
@@ -247,6 +253,11 @@ When training deep neural network models the most common talked about concept is
 
 Backpropagation is a way to train an FNN based model. This is a gradient based method - it adjusts the paramters of a model based on the error/loss between models predictions(its own output) and the actual desired output 
 > It tries to find the minimum of a loss function, which is a concept known as gradient descent.
+
+<img src="assets/backpropagation.png" height="300px" width="650px">
+
+>[! image source !](https://ai.stackexchange.com/questions/31566/different-ways-to-calculate-backpropagation-derivatives-any-difference)
+
 
 Backpropagation consists of two phases. 
 - forward propagation, where the data is fed forward. 

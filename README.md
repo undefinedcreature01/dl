@@ -228,14 +228,7 @@ Activation functions help map out data the nodes recieve in a way where it makes
 
 | Function |   | |
 |---|---| --- |
-| binary step | checks if a treshold was reached or not  | 
-$$
-f(x) =
-\begin{cases}
-0 & \text{if } x < 0 \\
-1 & \text{if } x \geq 0
-\end{cases}
-$$ |
+| binary step | checks if a treshold was reached or not  | $$f(x) =\begin{cases}0 & \text{if } x < 0 \\1 & \text{if } x \geq 0 \end{cases} $$ |
 | sigmoid | single input as a propability (between 0 and 1)  | $$\sigma(x) = \frac{1}{1 + e^{-x}}$$ |
 | tanh | sigmoid - but the range is form -1 to 1  |$$\tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}$$|
 | softmax |  sigmoid - but the input is a vector, so is the ouput - vector of probabilities | $$ softmax(x_i) = \frac{e^{x_i}}{ \sum_{k=1}^{n}e^{x_k}}  ; i = 1, i \leq  x\_len$$  |

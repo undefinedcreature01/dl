@@ -386,7 +386,7 @@ The looping trough data and adjusting paramters till the loss(result of a loss f
 | Vanishing gradients | during backpropagation - gradient becomes too small to make changes |
 | Exploding gradients| during backpropagation - gradients become too big ; unstable updates  |
 | Local Minima and Plateaus |   |
-| |   |
+
 
 <img src="assets/gradient_problems.png" height="350px" width="650px">
 

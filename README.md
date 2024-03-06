@@ -235,6 +235,16 @@ Activation functions help map out data the nodes recieve in a way where it makes
 | ReLu(Rectified Linear Unit) | is the positive part of the parameter (if it is negative returns 0)   | $$ ReLu(x) = \max(0, x)$$ $$ x \text{ if } x \geq 0 \atop 0 \text{ if } x < 0$$|
 | Leaky ReLu| same as ReLu but allows for negative values to exist(small slope)|$$ x \text{ if } x \geq 0 \atop x*0.01 \text{ if } x < 0$$ |
 
+$$
+f(x) =
+\begin{cases}
+0 & \text{if } x < 0 \\
+1 & \text{if } x \geq 0
+\end{cases}
+$$
+
+
+
 # Training models ?
 
 Training a model means adjusting weights and biases so that when it recieves data (unseen ; was not part of training) it can accuretly preform the desired task (ie. correctly classifying what is on an image..)

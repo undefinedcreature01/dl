@@ -208,6 +208,11 @@ At the start(when a model is first created) these weights and biases are just so
 
 Till now I have been referring to the data sent/recieved by a node as just input/ouput. What nodes actually recieve and output are features, relevant information from the data they recieve. 
 
+<img src="assets/neural_network_02.png" height="480px" width="720px">
+
+>[! image source !](https://www.researchgate.net/publication/275721804_Artificial_Neural_Network_ensemble_modeling_with_conjunctive_data_clustering_for_water_quality_prediction_in_rivers)
+
+
 ### Deep learning
 
 | |   |
@@ -273,6 +278,8 @@ $$
 - Leaky ReLu
 
 same as ReLu but allows for negative values to exist(small slope)
+
+$$ LeakyReLu(x) = max(0,x) + slope*x $$
 
 $$
 f(x) =
@@ -346,12 +353,18 @@ When training we generally use a "training loop". We do a pass trough a model (o
 These functions tell us how far off the models predictions are - compared to what they should be, so they compare the difference between the prediction and the desired output. (ideal loss is then 0 - they should be the same)
 >They (as other functions inside a model) are very task/problem dependant.
 
-| |   |
-|---|---|
-| Mean Squared Error (MSE) | $$MSE(T_i, p_i) = \frac{1}{n} \sum_{i=1}^{n} (T_i - p_i)^2$$  |
-| Mean Absolute Error (MAE) |   | | 
-| Cross-Entropy |    |  $$ \text{CE}(T, p) = - \sum_{i=1}^{C} T_i \cdot \log_e(p_i) $$| 
-| |   |
+
+- Mean Squared Error (MSE) 
+
+$$MSE(T_i, p_i) = \frac{1}{n} \sum_{i=1}^{n} (T_i - p_i)^2$$  
+
+- Mean Absolute Error
+ 
+$$ MAE(T, p) = \frac{1}{n} \sum_{i=1}^{n} | T_i - p_i| $$
+
+- Cross-Entropy     
+
+$$ \text{CE}(T, p) = - \sum_{i=1}^{C} T_i \cdot \log_e(p_i) $$
 
 
 ## (Mathetmatical) Optimization 
@@ -362,18 +375,22 @@ The looping trough data and adjusting paramters till the loss(result of a loss f
 
 | |   |
 |---|---|
-| Gradient descent |   |
-| Adam |   |
+| Gradient descent | finding the minimum of a loss function by going in the direction of the steepest slope  |
+| Adam (Adaptive Moment Estimation)|   |
 | |   |
 
 ## Training problems ?
 
 | |   |
 |---|---|
-| Vanishing gradients |   |
-| Exploding gradients|   |
+| Vanishing gradients | during backpropagation - gradient becomes too small to make changes |
+| Exploding gradients| during backpropagation - gradients become too big ; unstable updates  |
 | Local Minima and Plateaus |   |
 | |   |
+
+<img src="assets/gradient_problems.png" height="350px" width="650px">
+
+>[! image source !](https://www.comet.com/site/blog/vanishing-exploding-gradients-in-deep-neural-networks/)
 
 # AI vs. machine learing vs. deep learning ?
 
@@ -405,6 +422,11 @@ Many **SUBFIELDS** of AI (and even of machine learning) **use** machine learning
 | Natural Language Processing (NLP)| interpret/generate human language | AI assistants |
 | Computer vision (CV)| extraction of information from digital images or videos | object identification, face recognition|
 | | |
+
+
+<img src="assets/ai_ml_dl.png" height="480px" width="520px">
+
+>[! image source !](https://www.researchgate.net/figure/sualization-of-algorithms-vs-artificial-intelligence-vs-machine-learning-vs-deep_fig7_339997962)
 
 ## Object idientification
 

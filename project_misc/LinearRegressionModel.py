@@ -29,7 +29,6 @@ class LinearRegressionModel(NEURAL_NETWORK.Module): #pytorch models are a subcla
     def __init__(self):
         super().__init__()
 
-        #init model parameters ; closer to ideal(usually unknown)
         self.weight = NEURAL_NETWORK.Parameter(torch.rand(1,requires_grad=True,dtype=torch.float))
         self.bias = NEURAL_NETWORK.Parameter(torch.rand(1,requires_grad=True,dtype=torch.float))
         

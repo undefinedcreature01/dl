@@ -194,7 +194,7 @@ Being able to shift the function result means it is not stuck at [0,0] like most
 So each node is characterized by a weight, a bias and an activation function.
 At the start(when a model is first created) these weights and biases are just some random numbers. Throught training a model tweaks these paramters in a way where it is then able to calculate the desired output from given inputs.
 
-<img src="assets/neuron.jpg" height="300px" width="650px">
+<img src="assets/neuron.jpg" height="290px" width="450px">
 
 >[! image source !](https://towardsdatascience.com/deep-learning-versus-biological-neurons-floating-point-numbers-spikes-and-neurotransmitters-6eebfa3390e9)
 

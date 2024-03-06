@@ -125,6 +125,8 @@ The layred structure comes in handy when we have large amounts of data that need
 | link/connection |   |
 | |   |
 
+![Simple neural netowkr](assets/simple_neural_network.jpg){:height="200px" width="400px"}
+
 In the artificial neural networks neurons are also referred to as nodes or units. They take in data either from some external input data (ie. we give it) or from other nodes in the network, process it (run the given data through a function/method that returns a new value of the neuron) and produce an output - that is then sent to other nodes or treated as the final output.
 
 Neural networks are models made up of nodes, that are connected together. These nodes are usually combined into layers. 
